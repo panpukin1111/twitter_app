@@ -14,7 +14,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'sqlite3', '~> 1.3.6'
-  gem 'rspec-rails'
+  # gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -26,7 +26,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'guard-rspec', require: false # guardでrspecを動かす
+  # gem 'guard-rspec', require: false # guardでrspecを動かす
   gem 'terminal-notifier'
   gem 'terminal-notifier-guard'  # デスクトップ通知を行う
 end
