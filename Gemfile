@@ -7,6 +7,8 @@ gem 'bcrypt',         '3.1.12'
 gem 'faker',          '1.7.3'
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
+gem 'carrierwave',             '1.2.2'
+gem 'mini_magick',             '4.7.0'
 gem 'bootstrap-sass', '3.3.7'
 gem 'pry-byebug'
 gem 'rb-readline'
@@ -21,6 +23,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem "jquery-rails"
 gem 'pg', group: :production
+gem 'fog', '1.42', group: :production
 # gem  'pg' , '1.1.4'
 group :development, :test do
   gem 'sqlite3', '~> 1.3.6'
