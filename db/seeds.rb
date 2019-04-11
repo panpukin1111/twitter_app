@@ -37,3 +37,15 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+# # 界隈
+# Neighborhood.create!( 
+#     name: "Example Neighborhood",
+#     )
+
+# 99.times do |n|
+#   name = "example#{n+1}-neighborhood"
+#   User.create!(
+#     name:  name
+#     )
+# end
