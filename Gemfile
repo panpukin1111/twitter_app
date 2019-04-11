@@ -12,7 +12,6 @@ gem 'mini_magick',             '4.7.0'
 gem 'bootstrap-sass', '3.3.7'
 gem 'pry-byebug'
 gem 'rb-readline'
-# gem 'sqlite3'
 gem 'puma', '~> 3.11'
 gem 'annotate'
 gem 'sass-rails', '~> 5.0'
@@ -27,6 +26,7 @@ gem 'fog', '1.42', group: :production
 # gem  'pg' , '1.1.4'
 group :development, :test do
   gem 'sqlite3', '~> 1.3.6'
+  gem 'mysql2'
   # gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
