@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # get 'neighborhood/new'
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'sessions/new'      # rails g のときにデフォルトで作成された この２つはいらない？
@@ -23,6 +22,5 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
-  resources :neighborhood
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

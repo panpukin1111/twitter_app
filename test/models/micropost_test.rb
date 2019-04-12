@@ -2,12 +2,12 @@
 #
 # Table name: microposts
 #
-#  id         :bigint(8)        not null, primary key
-#  content    :text(65535)
-#  user_id    :bigint(8)
+#  id         :integer          not null, primary key
+#  content    :text
+#  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  picture    :string(255)
+#  picture    :string
 #
 
 require 'test_helper'
