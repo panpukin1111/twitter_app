@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_131954) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status"
+    t.integer "status", default: 0, null: false
   end
 
   create_table "microposts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_131954) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
