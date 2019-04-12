@@ -1,13 +1,23 @@
 <h1>界隈</h1>
 
-<%= will_paginate %>
-
 <ul class="groups">
-  <% @groups.each do |group| %>
-    <li>
-      <%= render group %>
-    </li>
-  <% end %>
-</ul>
-
-<%= will_paginate %>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>説明</th>
+        <th>status</th>
+      </tr>
+    </thead>
+    <% @groups.each do |group| %>
+      <tbody>
+        <tr>
+          <th><%= link_to group.name, group %></th>
+          <th><%= group.description %></th>
+          <th><%= group.status %></th>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>

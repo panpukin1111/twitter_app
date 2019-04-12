@@ -1,19 +1,11 @@
-<div class="row">
-  <aside class="col-md-4">
-    <section class="group_info">
-      <h1>
-        <%= @group.name %>
-        <p>
-          <% @group.group_users.each do |group_user| %>
-            <%= link_to group_user.user.name, user_path(group_user.user)  %>
-            <%= group_user.user.email %>
-            <br>
-          <% end %>
-        </p>
-      </h1>
-    </section>
-  </aside>
-</div>
+<% provide(:title, 'All users') %>
+<h1>界隈ユーザー</h1>
 
-
-group_user.user で出る
+<ul class="users">
+  <% @group.group_users.each do |group_user| %>
+    <li>
+      <%= gravatar_for group_user.user, size: 50 %>
+      <%= link_to group_user.user.name, user_path(group_user.user) %>
+    </li>
+  <% end %>
+</ul>
