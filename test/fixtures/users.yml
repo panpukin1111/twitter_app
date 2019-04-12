@@ -2,18 +2,18 @@
 #
 # Table name: users
 #
-#  id                :integer          not null, primary key
-#  name              :string
-#  email             :string
+#  id                :bigint(8)        not null, primary key
+#  name              :string(255)
+#  email             :string(255)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
-#  password_digest   :string
-#  remember_digest   :string
+#  password_digest   :string(255)
+#  remember_digest   :string(255)
 #  admin             :boolean          default(FALSE)
-#  activation_digest :string
+#  activation_digest :string(255)
 #  activated         :boolean          default(FALSE)
 #  activated_at      :datetime
-#  reset_digest      :string
+#  reset_digest      :string(255)
 #  reset_sent_at     :datetime
 #
 

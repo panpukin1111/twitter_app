@@ -2,18 +2,18 @@
 #
 # Table name: users
 #
-#  id                :integer          not null, primary key
-#  name              :string
-#  email             :string
+#  id                :bigint(8)        not null, primary key
+#  name              :string(255)
+#  email             :string(255)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
-#  password_digest   :string
-#  remember_digest   :string
+#  password_digest   :string(255)
+#  remember_digest   :string(255)
 #  admin             :boolean          default(FALSE)
-#  activation_digest :string
+#  activation_digest :string(255)
 #  activated         :boolean          default(FALSE)
 #  activated_at      :datetime
-#  reset_digest      :string
+#  reset_digest      :string(255)
 #  reset_sent_at     :datetime
 #
 
@@ -23,6 +23,8 @@ class User < ApplicationRecord
     has_many :passive_relationships, class_name:  "Relationship", foreign_key: "followed_id", dependent: :destroy
     has_many :following, through: :active_relationships, source: :followed
     has_many :followers, through: :passive_relationships, source: :follower
+    has_many :groups, through: :group_users
+    has_many :group_users
 
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save :downcase_email
