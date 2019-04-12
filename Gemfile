@@ -25,7 +25,7 @@ gem 'pg', group: :production
 gem 'fog', '1.42', group: :production
 # gem  'pg' , '1.1.4'
 group :development, :test do
-  gem 'sqlite3', '~> 1.3.6'
+  # gem 'sqlite3', '~> 1.3.6'
   gem 'mysql2'
   # gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
