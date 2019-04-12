@@ -1,10 +1,12 @@
-<h1>界隈ユーザー</h1>
+<h1>界隈</h1>
 
 <%= will_paginate %>
 
 <ul class="groups">
   <% @groups.each do |group| %>
-    <%= render group %>
+    <li>
+      <%= render group %>
+    </li>
   <% end %>
 </ul>
 

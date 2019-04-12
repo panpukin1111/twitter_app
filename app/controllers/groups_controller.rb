@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
   
     def show
       @group = Group.find(params[:id])
+      @users = @group.group_users
     #   @microposts = @user.microposts.paginate(page: params[:page])
     #   redirect_to root_url and return unless @user.activated?
     end
@@ -37,7 +38,6 @@ class GroupsController < ApplicationController
     #     redirect_to @user
     #   else
     #     render 'edit'
-      end
     end
   
     def destroy
@@ -60,6 +60,4 @@ class GroupsController < ApplicationController
     #   def admin_user
     #     redirect_to(root_url) unless current_user.admin?
     #   end
-  
-  end
-  
+end

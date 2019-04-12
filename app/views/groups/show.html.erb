@@ -1,0 +1,19 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="group_info">
+      <h1>
+        <%= @group.name %>
+        <p>
+          <% @group.group_users.each do |group_user| %>
+            <%= link_to group_user.user.name, user_path(group_user.user)  %>
+            <%= group_user.user.email %>
+            <br>
+          <% end %>
+        </p>
+      </h1>
+    </section>
+  </aside>
+</div>
+
+
+group_user.user で出る
