@@ -23,6 +23,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem "jquery-rails"
 gem 'pg', group: :production
 gem 'fog', '1.42', group: :production
+gem 'enumerize'
 # gem  'pg' , '1.1.4'
 group :development, :test do
   # gem 'sqlite3', '~> 1.3.6'

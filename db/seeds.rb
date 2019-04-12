@@ -44,7 +44,6 @@ users = User.order(:created_at).take(6)
 end
 
 puts 'create relationship'
-# リレーションシップ
 users = User.all
 user  = users.first
 following = users[2..50]
