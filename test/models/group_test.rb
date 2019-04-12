@@ -7,7 +7,7 @@
 #  description :text(65535)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  status      :integer
+#  status      :integer          default("draft"), not null
 #
 
 require 'test_helper'
