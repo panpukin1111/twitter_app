@@ -11,18 +11,18 @@ ActiveRecord::Base.connection.execute("set foreign_key_checks = 1")
 
 puts 'create User'
 User.create!( 
-    name: "Example User",
-    email: "example11@railstutorial.org",
-    password: "foobar", 
-    password_confirmation: "foobar",
+    name: "Example-user1",
+    email: "example-1@railstutorial.org",
+    password: "password", 
+    password_confirmation: "password",
     admin: true,
     activated: true,
     activated_at: Time.zone.now
     )
 
-99.times do |n|
-  name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
+99.times do |i|
+  name  = "Example-user#{i+2}"
+  email = "example-#{i+2}@railstutorial.org"
   password = "password"
   User.create!(
     name:  name,
@@ -38,8 +38,8 @@ end
 puts 'create content'
 
 users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(5)
+50.times do |i|
+  content = "content-#{i+1}"
   users.each { |user| user.microposts.create!(content: content) }
 end
 

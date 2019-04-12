@@ -15,6 +15,7 @@
 #  activated_at      :datetime
 #  reset_digest      :string(255)
 #  reset_sent_at     :datetime
+#  status            :integer
 #
 
 require 'test_helper'
