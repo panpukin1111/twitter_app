@@ -1,0 +1,10 @@
+<h1>界隈ユーザー</h1>
+
+<ul class="users">
+  <% @group.group_users.each do |group_user| %>
+    <li>
+      <%= gravatar_for group_user.user, size: 50 %>
+      <%= link_to group_user.user.name, user_path(group_user.user) %>
+    </li>
+  <% end %>
+</ul>

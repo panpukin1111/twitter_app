@@ -23,9 +23,9 @@ Rails.application.routes.draw do
     resources :groups do
       resources :users, controller: :group_users
     end
-    # resources :users do
-    #   resources :groups, controller: :user_groups
-    # end
+    resources :users do
+      resources :groups, controller: :user_groups
+    end
     root 'pages#index'
   end
   # end
