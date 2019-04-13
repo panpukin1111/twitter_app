@@ -24,6 +24,8 @@ gem "jquery-rails"
 gem 'pg', group: :production
 gem 'fog', '1.42', group: :production
 gem 'enumerize'
+gem 'devise'
+gem 'slim-rails'
 # gem  'pg' , '1.1.4'
 group :development, :test do
   # gem 'sqlite3', '~> 1.3.6'

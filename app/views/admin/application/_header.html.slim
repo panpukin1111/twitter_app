@@ -1,0 +1,17 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .container
+    = link_to '管理画面', admin_root_path, class: 'navbar-brand'
+    button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+      span.navbar-toggler-icon
+    #navbarNav.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+        li.nav-item
+          = link_to 'タグ', [:admin, :tags], class: 'nav-link'
+        li.nav-item
+          = link_to 'コンテスト', [:admin, :contests], class: 'nav-link'
+        li.nav-item
+          = link_to 'イベント', [:admin, :events], class: 'nav-link'
+        li.nav-item
+          = link_to '企業', [:admin, :companies], class: 'nav-link'
+        li.nav-item
+          = link_to 'ユーザー', [:admin, :users], class: 'nav-link'
