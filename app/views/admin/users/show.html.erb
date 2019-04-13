@@ -1,29 +1,22 @@
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <%= gravatar_for @user %>
-      <h1><%= @user.name %></h1>
-      <span><%= link_to "プロフィール", @user %></span>
-      <span><b>投稿数</b> <%= @user.microposts.count %></span>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-      <% if @users.any? %>
-        <div class="user_avatars">
-          <% @users.each do |user| %>
-            <%= link_to gravatar_for(user, size: 30), user %>
-          <% end %>
-        </div>
-      <% end %>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-      <ul class="users follow">
-        <%= render @users %>
-      </ul>
-      <%= will_paginate %>
-    <% end %>
-  </div>
-</div>
+<h1>ユーザー情報</h1>
+<ul class="base">
+  基本情報
+  <li>名前: <%= @user.name %></li>
+  <li>メール: <%= @user.email %></li>
+</ul>
+
+<ul class="groups">
+  <h2>界隈一覧</h2>
+  <% @groups.each do |user_group| %>
+    <li>
+      <%= user_group.group.name %>
+    </li>
+  <% end %>
+</ul>
+
+<ul class="microposts">
+  <h2>投稿一覧</h2>
+  <% @user.microposts.each do |micropost| %>
+    <li><%= micropost.content %></li>
+  <% end %>
+</ul>
