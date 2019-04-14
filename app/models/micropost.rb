@@ -19,6 +19,9 @@ class Micropost < ApplicationRecord
   validates :content, presence: true, length: { maximum: 140 }
   validate  :picture_size
 
+  extend Enumerize
+  enumerize :status, in: {draft: 0, published: 1}, scope: true
+
   private
 
     # アップロードされた画像のサイズをバリデーションする
