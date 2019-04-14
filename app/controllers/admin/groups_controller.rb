@@ -28,27 +28,28 @@ class Admin::GroupsController < Admin::ApplicationController
     end
   
     def edit
-      @user = Group.find(params[:id])
+      @group = Group.find(params[:id])
     end
   
     def update
-    #   @group = Group.find(params[:id])
-    #   if @group.update_attributes(user_params)
-    #     flash[:success] = "プロフィールを変更しました"
-    #     redirect_to @user
-    #   else
-    #     render 'edit'
+      @group = Group.find(params[:id])
+      if @group.update_attributes(group_params)
+        flash[:success] = "界隈の内容を変更しました"
+        redirect_to admin_groups_path
+      else
+        render 'edit'
+      end
     end
   
     def destroy
       Group.find(params[:id]).destroy
-      flash[:success] = "グループを削除しました"
-      redirect_to users_url
+      flash[:success] = "界隈を削除しました"
+      redirect_to admin_groups_path
     end
   
     private
-      def user_params
-        params.require(:group).permit(:name, :description)
+      def group_params
+        params.require(:group).permit(:name, :description, :status)
       end
 
 end

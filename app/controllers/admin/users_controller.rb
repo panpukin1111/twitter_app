@@ -36,7 +36,7 @@ class Admin::UsersController < Admin::ApplicationController
       @user = User.find(params[:id])
       if @user.update_attributes(user_params)
         flash[:success] = "プロフィールを変更しました"
-        redirect_to @user
+        redirect_to admin_users_path
       else
         render 'edit'
       end
@@ -45,26 +45,12 @@ class Admin::UsersController < Admin::ApplicationController
     def destroy
       User.find(params[:id]).destroy
       flash[:success] = "ユーザーを削除しました"
-      redirect_to users_url
-    end
-  
-    def following
-      @title = "フォロー"
-      @user  = User.find(params[:id])
-      @users = @user.following.paginate(page: params[:page])
-      render 'show_follow'
-    end
-  
-    def followers
-      @title = "フォロワー"
-      @user  = User.find(params[:id])
-      @users = @user.followers.paginate(page: params[:page])
-      render 'show_follow'
+      redirect_to admin_users_path
     end
   
     private
       def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :admin, :activated, :status)
       end
 
 end

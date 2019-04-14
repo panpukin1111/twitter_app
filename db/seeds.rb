@@ -10,19 +10,9 @@ end
 ActiveRecord::Base.connection.execute("set foreign_key_checks = 1")
 
 puts 'create User'
-User.create!( 
-    name: "Example-user1",
-    email: "example-1@railstutorial.org",
-    password: "password", 
-    password_confirmation: "password",
-    admin: true,
-    activated: true,
-    activated_at: Time.zone.now
-    )
-
-99.times do |i|
-  name  = "Example-user#{i+2}"
-  email = "example-#{i+2}@railstutorial.org"
+100.times do |i|
+  name  = "Example-user#{i+1}"
+  email = "example-#{i+1}@railstutorial.org"
   password = "password"
   User.create!(
     name:  name,
@@ -52,7 +42,7 @@ following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
 puts 'create group'
-10.times do |i|
+100.times do |i|
   name = "group-#{i+1}"
   description = "description-#{i+1}"
   Group.create!(
@@ -63,9 +53,20 @@ end
 
 puts 'create group_user'
 100.times do |i|
-    group_id = i.div(10) + 1
-    GroupUser.create!(
-      user_id: i+1,
-      group_id: group_id
-    )
+  GroupUser.create!(
+    user_id: i+1,
+    group_id: 1
+  )
+end
+group_id = 1
+1000.times do |i|
+  if group_id > 100
+    group_id = 1
+  end
+  user_id = i.div(10) + 1
+  GroupUser.create!(
+    user_id: user_id,
+    group_id: group_id
+  )
+  group_id += 1
 end

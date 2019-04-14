@@ -1,0 +1,15 @@
+h1 界隈のユーザーたち
+
+ul.users
+  - if @users.present?
+    - @users.each do |user|
+      li
+        = gravatar_for user.user, size: 50
+        = user.user.name
+        .pull-right
+          = link_to '退会させる', admin_group_user_path(user), data: {confirm: '退会していいですか？'}, method: :delete, class: 'btn btn-danger'
+
+  - else 
+    p ユーザーはいません
+
+br
