@@ -16,5 +16,5 @@ class Group < ApplicationRecord
     accepts_nested_attributes_for :group_users
 
     extend Enumerize
-    enumerize :status, in: {draft: 0, published: 1}, scope: true
+    enumerize :status, in: {非公開: 0, 公開: 1}, scope: true
 end

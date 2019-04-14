@@ -20,7 +20,7 @@ class Micropost < ApplicationRecord
   validate  :picture_size
 
   extend Enumerize
-  enumerize :status, in: {draft: 0, published: 1}, scope: true
+  enumerize :status, in: {非公開: 0, 公開: 1}, scope: true
 
   private
 

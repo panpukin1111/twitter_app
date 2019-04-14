@@ -37,7 +37,7 @@ class User < ApplicationRecord
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
     extend Enumerize
-    enumerize :status, in: {draft: 0, published: 1}, scope: true
+    enumerize :status, in: {非公開: 0, 公開: 1}, scope: true
 
     # 渡された文字列のハッシュ値を返す
     def User.digest(string)
