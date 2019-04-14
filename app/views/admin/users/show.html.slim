@@ -1,4 +1,4 @@
-h1 ユーザー情報
+h1 所属界隈一覧
 ul.list-inline
   h2 基本情報
   li 名前 :
@@ -7,15 +7,17 @@ ul.list-inline
   li メール :
   li = @user.email
 
-ul.groups
-  h2 界隈一覧
-  - @groups.each do |user_group|
+h2 界隈一覧
+ul.users
+  - @groups.each do |group|
     li
-      = user_group.group.name
+      = group.group.name
+      .pull-right
+        = link_to '退会する', admin_user_group_path(group), data: {confirm: '退会していいですか？'}, method: :delete, class: 'btn btn-danger'
 
-ul.microposts
-  h2 投稿一覧
-  - @user.microposts.each do |micropost|
-    li
-      = micropost.content
+/ ul.microposts
+/   h2 投稿一覧
+/   - @user.microposts.each do |micropost|
+/     li
+/       = micropost.content
 

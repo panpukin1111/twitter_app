@@ -1,0 +1,19 @@
+h1 投稿一覧
+
+.container
+  table.table
+    thead
+      tr
+        th 内容
+        th ステータス
+        th
+    tbody
+      - @microposts.each do |micropost|
+        tr
+          td = micropost.content
+          td
+          td 
+            = '編集'
+            = '削除'
+  
+  = will_paginate @microposts

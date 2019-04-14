@@ -11,6 +11,11 @@ class Admin::UsersController < Admin::ApplicationController
       @user = User.find(params[:id])
       @groups = @user.group_users
     end
+
+    def show_micropost
+      @user = User.find(params[:id])
+      @microposts = @user.microposts.paginate(page: params[:page])
+    end
   
     def new
       @user = User.new
@@ -47,6 +52,12 @@ class Admin::UsersController < Admin::ApplicationController
       flash[:success] = "ユーザーを削除しました"
       redirect_to admin_users_path
     end
+
+    # def exit_room
+    #   GroupUser.find(params[:id]).destroy
+    #   flash[:success] = "退会しました"
+    #   render 'index'
+    # end
   
     private
       def user_params
@@ -54,4 +65,3 @@ class Admin::UsersController < Admin::ApplicationController
       end
 
 end
-  

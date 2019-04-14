@@ -24,6 +24,9 @@ Rails.application.routes.draw do
       resources :users, controller: :group_users
     end
     resources :users do
+      member do
+        get :show_micropost
+      end
       resources :groups, controller: :user_groups
     end
     root 'pages#index'

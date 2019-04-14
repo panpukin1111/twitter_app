@@ -11,11 +11,12 @@ h1 界隈一覧
     tbody
       - @groups.each do |group|
         tr
-          td = link_to group.name, admin_group_path(group)
+          td = group.name
           td = group.description
           td = group.status
           td 
-            = link_to '編集', edit_admin_group_path(group), class: 'btn btn-primary'
+            = link_to 'メンバー', admin_group_path(group), class: 'btn btn-primary'
+            = link_to '編集', edit_admin_group_path(group), class: 'btn btn-success'
             = link_to '削除', admin_group_path(group), data: {confirm: '削除していいですか？'}, method: :delete, class: 'btn btn-danger'
 
   = will_paginate @groups
