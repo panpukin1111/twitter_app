@@ -24,8 +24,8 @@ class User < ApplicationRecord
     has_many :passive_relationships, class_name:  "Relationship", foreign_key: "followed_id", dependent: :destroy
     has_many :following, through: :active_relationships, source: :followed
     has_many :followers, through: :passive_relationships, source: :follower
-    has_many :groups, through: :group_users
     has_many :group_users, dependent: :destroy
+    has_many :groups, through: :group_users
 
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save :downcase_email
@@ -117,6 +117,15 @@ class User < ApplicationRecord
     # 現在のユーザーがフォローしてたらtrueを返す
     def following?(other_user)
         following.include?(other_user)
+    end
+
+    # 検索機能
+    def self.search(search) #ここでのself.はUser.を意味する
+        if search
+          where(['name LIKE ?', "%#{search}%"]) #検索とnameの部分一致を表示。User.は省略
+        else
+          all #全て表示。User.は省略
+        end
     end
     
     private

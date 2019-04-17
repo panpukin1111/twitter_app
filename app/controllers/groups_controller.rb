@@ -9,7 +9,15 @@ class GroupsController < ApplicationController
   
     def show
       @group = Group.find(params[:id])
-      @users = @group.group_users
+      # binding.pry
+      # User.where()
+      # Order.includes(:customers).where(customer: { id: 1 })
+      @users = @group.users.paginate(page: params[:page]).search(params[:search])
+      @search = params[:search]
+      # @users = User.includes(:groups).where(group: { id: @group.id })
+      # binding.pry
+      # @users = @group.group_users.paginate(page: params[:page])
+      # .search(params[:search])
     #   @microposts = @user.microposts.paginate(page: params[:page])
     #   redirect_to root_url and return unless @user.activated?
     end

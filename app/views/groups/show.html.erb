@@ -1,11 +1,19 @@
 <% provide(:title, 'All users') %>
 <h1>界隈ユーザー</h1>
 
+<p>user search</p>
+<%= form_tag(group_path, :method => 'get' ) do %>
+  <%= text_field_tag :search, @search %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<%= will_paginate @users %>
 <ul class="users">
-  <% @group.group_users.each do |group_user| %>
+  <% @users.each do |user| %>
     <li>
-      <%= gravatar_for group_user.user, size: 50 %>
-      <%= link_to group_user.user.name, user_path(group_user.user) %>
+      <%= gravatar_for user, size: 50 %>
+      <%= link_to user.name, user_path(user) %>
     </li>
   <% end %>
 </ul>
+<%= will_paginate @users %>
