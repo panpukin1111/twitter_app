@@ -1,0 +1,14 @@
+- provide(:title, 'All users')
+h1 界隈ユーザー
+p user search
+= form_tag(group_path, :method => 'get') do
+  = text_field_tag :search, @search
+  = submit_tag 'Search'
+= link_to '招待する', invitable_users_group_path, class: 'btn btn-primary pull-right'
+= will_paginate @users
+ul.users
+  - @users.each do |user|
+    li
+      = gravatar_for user, size: 50
+      = link_to user.name, user_path(user)
+= will_paginate @users
