@@ -1,0 +1,21 @@
+<h1>招待する</h1>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>画像<th>
+        <th>名前<th>
+      </tr>
+    </thead>
+    <% @invitable_users.each do |invitable_user| %>
+      <tbody>
+        <tr>
+          <th><%= gravatar_for invitable_user, size: 50 %></th>
+          <th><%= invitable_user.name %></th>
+          <th><%= link_to '招待', invite_group_path(invite_id: invitable_user, id: @group), :method => :put, class: 'btn btn-primary' %></th>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>

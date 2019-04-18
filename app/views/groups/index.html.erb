@@ -1,6 +1,5 @@
 <h1>界隈</h1>
 
-<ul class="groups">
 <div class="container">
   <table class="table">
     <thead>
@@ -16,6 +15,59 @@
           <th><%= link_to group.name, group %></th>
           <th><%= group.description %></th>
           <th><%= group.status %></th>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>
+
+<h1>フォローユーザー</h1>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>画像<th>
+        <th>名前<th>
+      </tr>
+    </thead>
+    <% @users.each do |user| %>
+      <tbody>
+        <tr>
+          <th><%= gravatar_for user, size: 50 %></th>
+          <th><%= link_to user.name, user_path(user) %></th>
+          <th>
+            <%= form_for(current_user.active_relationships.find_by(followed_id: user.id), html: { method: :delete }, remote: true) do |f| %>
+              <%= f.submit "フォロー解除", class: "btn btn-primary" %>
+            <% end %>
+          </th>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>
+
+<h1>フォロー可能ユーザー</h1>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>画像<th>
+        <th>名前<th>
+      </tr>
+    </thead>
+    <% @followable_users.each do |followable_user| %>
+      <tbody>
+        <tr>
+          <th><%= gravatar_for followable_user, size: 50 %></th>
+          <th><%= link_to followable_user.name, user_path(followable_user) %></th>
+          <th>
+            <%= form_for(current_user.active_relationships.build(followed_id: followable_user.id), :url => {:controller => 'relationships', :action => 'create'}, remote: true) do |f| %>
+              <div><%= hidden_field_tag :followed_id, followable_user.id %></div>
+              <%= f.submit "フォロー", class: "btn btn-primary" %>
+            <% end %>
+          </th> 
         </tr>
       </tbody>
     <% end %>

@@ -18,6 +18,12 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+  resources :groups do
+    member do 
+      get :invitable_users
+      put :invite
+    end
+  end
   # authenticate :user do
   namespace :admin do
     resources :groups do
@@ -34,6 +40,5 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
-  resources :groups
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

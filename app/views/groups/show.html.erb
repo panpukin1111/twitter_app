@@ -6,7 +6,7 @@
   <%= text_field_tag :search, @search %>
   <%= submit_tag 'Search' %>
 <% end %>
-
+<%= link_to '招待する', invitable_users_group_path, class: 'btn btn-default pull-right' %>
 <%= will_paginate @users %>
 <ul class="users">
   <% @users.each do |user| %>
