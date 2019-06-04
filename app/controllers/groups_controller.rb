@@ -5,8 +5,8 @@ class GroupsController < ApplicationController
   
     def index
       @user = current_user
-      @groups = Group.all.paginate(page: params[:page])
-      @users = current_user.following
+      @groups = current_user.groups
+      @follow_users = current_user.following
       group_id = current_user.groups.ids
       room_users = []
       (1..(group_id.count)).each do |i|

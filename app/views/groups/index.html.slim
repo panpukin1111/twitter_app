@@ -20,7 +20,7 @@ h1.open2 フォローユーザー
       tr
         th 画像
         th 名前
-    - @users.each do |user|
+    - @follow_users.each do |user|
       tbody
         tr
           th = gravatar_for user, size: 50
