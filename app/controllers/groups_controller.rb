@@ -12,9 +12,8 @@ class GroupsController < ApplicationController
       (1..(group_id.count)).each do |i|
         room_users.push(Group.find(group_id[i-1]).users)  
       end
-      room_users = room_users.uniq.first
+      room_users = room_users.flatten.uniq
       @followable_users = room_users - current_user.following - [current_user]
-      # binding.pry
     end
   
     def show
