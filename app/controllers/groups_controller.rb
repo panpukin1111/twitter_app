@@ -56,16 +56,14 @@ class GroupsController < ApplicationController
     end
   
     def invitable_users
-      # binding.pry
       @group = Group.find(params[:id])
       room_users = []
       group_id = current_user.groups.ids
       (1..(group_id.count)).each do |i|
         room_users.push(Group.find(group_id[i-1]).users)  
       end
-      room_users = room_users.uniq.first
+      room_users = room_users.flatten.uniq
       @invitable_users = (room_users - @group.users)
-      # binding.pry
     end
 
     def invite
