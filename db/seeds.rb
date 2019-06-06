@@ -50,15 +50,10 @@ puts 'create group'
     description: description
     )
 end
-Group.create!(name: "group_half", description: "1-50" )
+Group.create!(name: "group_half", description: "1-50 のユーザーが所属するグループ" )
+Group.create!(name: "group_all", description: "全員が所属するグループ")
 
 puts 'create group_user'
-100.times do |i|
-  GroupUser.create!(
-    user_id: i+1,
-    group_id: 1
-  )
-end
 group_id = 1
 1000.times do |i|
   if group_id > 100
@@ -75,5 +70,12 @@ end
   GroupUser.create!(
     user_id: i+1,
     group_id: 101
+  )
+end
+# 全員がgroup:1 に所属
+100.times do |i|
+  GroupUser.create!(
+    user_id: i+1,
+    group_id: 102
   )
 end
