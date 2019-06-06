@@ -50,6 +50,7 @@ puts 'create group'
     description: description
     )
 end
+Group.create!(name: "group_half", description: "1-50" )
 
 puts 'create group_user'
 100.times do |i|
@@ -69,4 +70,10 @@ group_id = 1
     group_id: group_id
   )
   group_id += 1
+end
+50.times do |i|
+  GroupUser.create!(
+    user_id: i+1,
+    group_id: 101
+  )
 end
